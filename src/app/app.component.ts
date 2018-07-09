@@ -11,7 +11,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 })
 export class AppComponent {
   title = 'app';
-  girl = { name: '', thumb: '', gallery: [], fb_url: '', video_url: '' };
+  girl = { name: '', thumb: '',is_hot:false, gallery: [], fb_url: '', video_url: '' };
   loading = false
   success = 0
   constructor(
@@ -59,11 +59,11 @@ export class AppComponent {
     this.db.database.ref('girl').push(this.girl,(err=>{
       console.log(err, 'db')
       this.success = 1
-      this.girl = { name: '', thumb: '', gallery: [], fb_url: '', video_url: '' }
+      this.girl = { name: '', thumb: '',is_hot:false, gallery: [], fb_url: '', video_url: '' }
     })).then(res=>{
       console.log(res)
       this.success = 1
-      this.girl = { name: '', thumb: '', gallery: [], fb_url: '', video_url: '' }
+      this.girl = { name: '', thumb: '', is_hot:false,gallery: [], fb_url: '', video_url: '' }
     })
   }
 }
